@@ -1,0 +1,51 @@
+**************Finding duplicate Characters in a String using HashMap*****************
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.Scanner;
+
+
+public class Main
+{
+ public static void main (String[] args) {
+   
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter the string");
+    String str = sc.nextLine();
+    
+    findDupChar(str);
+    
+    sc.close();
+ } 
+ 
+ public static void findDupChar(String input)
+ {
+     //Create a HashMap
+     Map<Character,Integer> map = new HashMap<Character,Integer>();
+     //Convert String to CharArray
+     char[] chars = input.toCharArray();
+     
+     //If Map contains the keys, increase their value by 1
+     for(Character ch:chars)
+     {
+         if(map.containsKey(ch))
+         {
+             map.put(ch,map.get(ch)+1);
+         }
+         else
+         {
+             map.put(ch,1);
+         }
+     }
+     //Get set of keys
+     Set<Character> keys = map.keySet();
+     //Print duplicate chars with their count
+     for(Character ch:keys)
+     {
+         if(map.get(ch)>1)
+         System.out.println("Character " + ch+ " " + map.get(ch));
+     }
+ }
+ 
+}
