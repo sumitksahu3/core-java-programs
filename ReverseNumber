@@ -1,0 +1,41 @@
+//This program will reverse a number using loop and verify weather its Palindrome
+package com.iad.hc.pcs.pages;
+
+import java.util.Scanner;
+
+public class Codility {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter a number");
+		//int numb=sc.nextInt();
+		long numb = sc.nextLong();
+		
+		long revNumb = doRev(numb);
+		System.out.println("Reversed number is: " + revNumb);
+		
+		if(numb==revNumb)
+			System.out.println("Given number is Palindrome");
+		else
+			System.out.println("Given number is not Palindrome");
+		
+		sc.close();
+		
+
+	}
+	public static long doRev(long input)
+	{
+		long output=0;
+		
+		while(input!=0) //for(;input!=0;)
+		{
+			output=output*10;
+			output= output+input%10;
+			input=input/10;
+		}	
+				
+		return output;
+	}
+
+}
