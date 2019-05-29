@@ -1,0 +1,47 @@
+import java.util.*;
+
+public class Codility
+{
+public static void main(String args[])
+{
+	Scanner sc=new Scanner(System.in);
+	int counter=0,limit,sum=0,i=0;
+	
+	System.out.println("Enter the count");
+	limit=sc.nextInt();
+	
+	System.out.println("First " +limit+ " prime numbers are: ");
+	
+	while(counter<limit)
+	{
+		i++;
+	if(isPrime(i))
+	{
+		System.out.print(i + " ");
+		counter++;
+		sum=sum+i;
+	}	
+	}
+	
+	System.out.println("\nSum for first "+ limit + " prime numbers is: "+ sum);
+	sc.close();
+}
+
+public static boolean isPrime(int n)
+{
+	if(n<=1)
+	{
+		return false;
+	}	
+	
+	for(int i=2;i<=Math.sqrt(n);i++)
+	{
+		if(n%i==0)
+		{
+			return false;
+		}	
+	}
+	return true;
+}
+
+}
